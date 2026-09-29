@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="#000000" stroke-width="3"/>
+  
+  <!-- Kepala (siluet profile) -->
+  <circle cx="100" cy="52" r="22" fill="#000000"/>
+  
+  <!-- Buku terbuka GEDE banget -->
+  <path d="M 100 90 Q 60 70 20 80 L 20 175 Q 60 165 100 185 Z" 
+        fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M 100 90 Q 140 70 180 80 L 180 175 Q 140 165 100 185 Z" 
+        fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round"/>
+  <line x1="100" y1="90" x2="100" y2="185" stroke="#000000" stroke-width="3"/>
+  
+  <!-- Garis teks halaman kiri -->
+  <line x1="35" y1="105" x2="88" y2="98" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="35" y1="118" x2="88" y2="111" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="35" y1="131" x2="88" y2="124" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="35" y1="144" x2="88" y2="137" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="35" y1="157" x2="80" y2="151" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Garis teks halaman kanan -->
+  <line x1="112" y1="98" x2="165" y2="105" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="112" y1="111" x2="165" y2="118" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="112" y1="124" x2="165" y2="131" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="112" y1="137" x2="165" y2="144" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="120" y1="151" x2="165" y2="157" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+</svg>
