@@ -1,7 +1,6 @@
 import { createFileRoute, Outlet, redirect } from '@tanstack/react-router'
 import HeaderBar from '../../components/HeaderBar'
 import Sidebar from '../../features/Sidebar'
-import { AuthProvider } from '../../features/Auth/AuthProvider'
 
 export const Route = createFileRoute('/_app')({
   beforeLoad: ({ location }) => {
@@ -17,7 +16,6 @@ export const Route = createFileRoute('/_app')({
   },
   component: () => {
     return (
-      <AuthProvider>
         <div className='relative flex flex-row'>
             <HeaderBar />
             <Sidebar />
@@ -25,7 +23,6 @@ export const Route = createFileRoute('/_app')({
               <Outlet />
             </div>
         </div>
-      </AuthProvider>
     )
   }
 })
