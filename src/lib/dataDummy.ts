@@ -59,6 +59,8 @@ export const profil: Profil = {
   avatar: "https://i.pravatar.cc/150?img=47", // ganti ke path asset lokal kalau perlu
 };
 
+export const DUMMY_PASSWORD = "password123";
+
 export const menuSidebar: MenuItem[] = [
   { label: "Data Buku", path: "/data-buku", icon: "book" },
   { label: "Data Anggota", path: "/data-anggota", icon: "users" },

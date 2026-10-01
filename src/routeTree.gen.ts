@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as AppRouteRouteImport } from './routes/_app/route'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as AppappIndexRouteImport } from './routes/_app/(app)/index'
 import { Route as AppappMemberRouteImport } from './routes/_app/(app)/member'
 import { Route as AppappReportRouteImport } from './routes/_app/(app)/report'
 
 const AppRouteRoute = AppRouteRouteImport.update({
   id: '/_app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppappIndexRoute = AppappIndexRouteImport.update({
@@ -36,10 +42,12 @@ const AppappReportRoute = AppappReportRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof AppappIndexRoute
+  '/login': typeof LoginRoute
   '/member': typeof AppappMemberRoute
   '/report': typeof AppappReportRoute
 }
 export interface FileRoutesByTo {
+  '/login': typeof LoginRoute
   '/member': typeof AppappMemberRoute
   '/report': typeof AppappReportRoute
   '/': typeof AppappIndexRoute
@@ -47,18 +55,20 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_app': typeof AppRouteRouteWithChildren
+  '/login': typeof LoginRoute
   '/_app/(app)/member': typeof AppappMemberRoute
   '/_app/(app)/report': typeof AppappReportRoute
   '/_app/(app)/': typeof AppappIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/member' | '/report'
+  fullPaths: '/' | '/login' | '/member' | '/report'
   fileRoutesByTo: FileRoutesByTo
-  to: '/member' | '/report' | '/'
+  to: '/login' | '/member' | '/report' | '/'
   id:
     | '__root__'
     | '/_app'
+    | '/login'
     | '/_app/(app)/member'
     | '/_app/(app)/report'
     | '/_app/(app)/'
@@ -66,6 +76,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   AppRouteRoute: typeof AppRouteRouteWithChildren
+  LoginRoute: typeof LoginRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -75,6 +86,13 @@ declare module '@tanstack/react-router' {
       path: ''
       fullPath: '/'
       preLoaderRoute: typeof AppRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_app/(app)/': {
@@ -119,6 +137,7 @@ const AppRouteRouteWithChildren = AppRouteRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   AppRouteRoute: AppRouteRouteWithChildren,
+  LoginRoute: LoginRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
