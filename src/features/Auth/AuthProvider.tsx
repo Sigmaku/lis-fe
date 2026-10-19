@@ -1,14 +1,10 @@
 import { useState, useCallback, type ReactNode } from "react";
 import { profil as dummyProfil, DUMMY_PASSWORD, type Profil } from "../../lib/dataDummy";
 import { AuthContext } from "../../lib/AuthContext";
-
-const STORAGE_KEY = "auth.user";
+import { clearStoredUser, getStoredUser, setStoredUser } from "../../lib/authStorage";
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<Profil | null>(() => {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? (JSON.parse(raw) as Profil) : null;
-  });
+  const [user, setUser] = useState<Profil | null>(() => getStoredUser());
 
   const login = useCallback(async (email: string, password: string) => {
     // simulasi network
@@ -18,14 +14,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       throw new Error("Email atau password salah");
     }
 
+    setStoredUser(dummyProfil);
     setUser(dummyProfil);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(dummyProfil));
     return dummyProfil;
   }, []);
 
   const logout = useCallback(() => {
+    clearStoredUser();
     setUser(null);
-    localStorage.removeItem(STORAGE_KEY);
   }, []);
 
   return (

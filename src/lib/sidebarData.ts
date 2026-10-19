@@ -1,4 +1,4 @@
-import { File, Layers, UserRound, type LucideIcon } from "lucide-react"
+import { BookOpen, FileText, Users, type LucideIcon } from "lucide-react"
 import type { LinkProps } from "@tanstack/react-router"
 
 export interface SidebarData {
@@ -8,7 +8,7 @@ export interface SidebarData {
 }
 
 export const sidebarItems: SidebarData[] = [
-  { label: "Data Buku",   icon: Layers,    link: "/" },
-  { label: "Data Anggota", icon: File,      link: "/member" },
-  { label: "Laporan",     icon: UserRound, link: "/report" },
+  { label: "Data Buku",   icon: BookOpen,  link: "/" },
+  { label: "Data Anggota", icon: Users,     link: "/member" },
+  { label: "Laporan",     icon: FileText, link: "/report" },
 ]

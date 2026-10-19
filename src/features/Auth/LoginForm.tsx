@@ -30,20 +30,20 @@ export function LoginForm({
   });
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
       {/* Email */}
       <div>
-        <label className="mb-1 block text-sm font-medium text-slate-700">
+        <label className="mb-1 block text-sm font-medium text-stone-700">
           Email
         </label>
         <div className="relative">
-          <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+          <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-400" />
           <input
             type="email"
             autoComplete="email"
             placeholder="nama@perpustakaan.id"
             {...register("email")}
-            className="w-full rounded-lg border border-slate-300 py-2.5 pl-10 pr-3 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+            className="w-full rounded-lg border border-stone-300 bg-stone-50/50 py-3 pl-10 pr-3 text-sm outline-none transition focus:border-coral-glow focus:ring-2 focus:ring-coral-glow/25"
           />
         </div>
         {errors.email && (
@@ -53,23 +53,23 @@ export function LoginForm({
 
       {/* Password */}
       <div>
-        <label className="mb-1 block text-sm font-medium text-slate-700">
+        <label className="mb-1 block text-sm font-medium text-stone-700">
           Password
         </label>
         <div className="relative">
-          <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+          <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-400" />
           <input
             type={showPassword ? "text" : "password"}
             autoComplete="current-password"
             placeholder="••••••••"
             {...register("password")}
-            className="w-full rounded-lg border border-slate-300 py-2.5 pl-10 pr-10 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+            className="w-full rounded-lg border border-stone-300 bg-stone-50/50 py-3 pl-10 pr-10 text-sm outline-none transition focus:border-coral-glow focus:ring-2 focus:ring-coral-glow/25"
           />
           <button
             type="button"
             onClick={() => setShowPassword((v) => !v)}
             aria-label={showPassword ? "Sembunyikan password" : "Tampilkan password"}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600"
           >
             {showPassword ? (
               <EyeOff className="h-4 w-4" />
@@ -92,7 +92,7 @@ export function LoginForm({
       <button
         type="submit"
         disabled={loading}
-        className="flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 py-2.5 font-medium text-white transition hover:bg-blue-700 disabled:opacity-60"
+        className="flex w-full items-center justify-center gap-2 rounded-lg bg-coral-glow py-3 font-semibold text-white shadow-md shadow-coral-glow/30 transition hover:brightness-95 disabled:opacity-60"
       >
         {loading ? (
           <Loader2 className="h-4 w-4 animate-spin" />
