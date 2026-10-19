@@ -18,8 +18,8 @@ export const Route = createFileRoute('/_app')({
     return (
         <div className='relative flex flex-row'>
             <HeaderBar />
-            <Sidebar />
-            <div className=''>
+            <div className='absolute flex flex-row'>
+              <Sidebar/>
               <Outlet />
             </div>
         </div>
